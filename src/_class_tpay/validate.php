@@ -36,7 +36,7 @@ class Validate
     const FLOAT = 'float';
     const FILTER = 'filter';
     const STRING = 'string';
-    const ARRAY = 'array';
+    const ARRAY_TYPE = 'array';
     const MAXLENGHT_128 = 'maxlenght_128';
     const OPTIONS = 'options';
     const KANAL = 'kanal';
@@ -460,7 +460,7 @@ class Validate
         ),
         'alias' => array(
             self::REQUIRED   => true,
-            self::VALIDATION => array(self::ARRAY),
+            self::VALIDATION => array(self::ARRAY_TYPE),
         ),
     );
     /**
@@ -675,8 +675,8 @@ class Validate
         ),
         'msg_value' => array(
             self::REQUIRED   => true,
-            self::TYPE       => self::ARRAY,
-            self::VALIDATION => array(self::ARRAY),
+            self::TYPE       => self::ARRAY_TYPE,
+            self::VALIDATION => array(self::ARRAY_TYPE),
         ),
     );
     /**
@@ -1282,7 +1282,7 @@ class Validate
                     case static::FLOAT:
                         $val = (float)$val;
                         break;
-                    case static::ARRAY:
+                    case static::ARRAY_TYPE:
                         $val = (array)$val;
                         break;
                     default:
@@ -1399,7 +1399,7 @@ class Validate
                     case 'country_code':
                         static::validateCountryCode($value, $name);
                         break;
-                    case static::ARRAY:
+                    case static::ARRAY_TYPE:
                         static::validateArray($value, $name);
                         break;
                     default:
